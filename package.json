@@ -10,6 +10,9 @@
     "deploy:route": "wrangler deploy"
   },
   "devDependencies": {
+    "@phosphor-icons/core": "^2.1.1",
+    "dompurify": "^3.4.16",
+    "esbuild": "^0.28.2",
     "marked": "^18.1.0",
     "sanitize-html": "^2.18.0",
     "wrangler": "^4.149.0",
