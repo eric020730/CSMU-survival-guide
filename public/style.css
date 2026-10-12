@@ -1,5 +1,5 @@
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
   --bg: #f7f6f2; --surface: #fdfcf9; --text: #292c27; --muted: #656960;
   --border: #dedfd6; --input-border: #92978c; --accent: #3e6250; --tint: #eaf0e7;
   --button: #2c332d; --button-text: #fbfcf8; --error: #a13b32; --placeholder: #777d71;
@@ -7,13 +7,6 @@
   --serif: "Songti TC", "Noto Serif TC", "PMingLiU", Georgia, serif;
   --mono: ui-monospace, "SF Mono", monospace;
   font-family: var(--sans); font-size: 16px;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #1d211d; --surface: #242923; --text: #e8ebe2; --muted: #b1b8a9;
-    --border: #42493c; --input-border: #8a9480; --accent: #bbd0b4; --tint: #303e2d;
-    --button: #dbe4d2; --button-text: #222c1e; --error: #f0b1a8; --placeholder: #a4ae9b;
-  }
 }
 :root[data-theme="dark"] {
   color-scheme: dark;

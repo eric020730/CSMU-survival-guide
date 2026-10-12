@@ -27,7 +27,7 @@ Header: compact brand, help and one primary writing action. Archive: categories 
 
 Keep `csmu-survival-guide-draft-v1` and migrate its content without clearing it. Keep new filename separately so reopening a draft uses the same GitHub file name. Store data only after successful localStorage writes; visibly report storage failures. Export incomplete drafts with `draft: true`. Publishing still requires a GitHub commit and successful Actions run. Never label a GitHub handoff as a completed publication.
 
-Theme: system preference by default, optional light/dark selection. Motion is limited to short opacity/transform feedback and respects reduced motion. The mobile editor uses the main page scroll; publishing actions stay in document flow and include safe-area clearance.
+Theme: light by default, independent of system preference. Keep manual light/dark selection. Use a new theme preference key so legacy system/dark preferences cannot override the warm-white default on this release. Motion is limited to short opacity/transform feedback and respects reduced motion. The mobile editor uses the main page scroll; publishing actions stay in document flow and include safe-area clearance.
 
 ## Verification
 

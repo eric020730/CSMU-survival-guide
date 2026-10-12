@@ -244,11 +244,20 @@ $('#how-to').addEventListener('click',() => $('#help').showModal());
 for (const button of document.querySelectorAll('[data-close]')) button.addEventListener('click',() => document.getElementById(button.dataset.close).close());
 // Help remains available on phones in the footer without crowding the header.
 const mobileHelp = document.createElement('button'); mobileHelp.className = 'text-button footer-help'; mobileHelp.textContent = '如何更新'; mobileHelp.addEventListener('click',() => $('#help').showModal()); $('.main-footer>div').append(mobileHelp);
-try { const theme = localStorage.getItem('csmu-survival-guide-theme'); if (['light','dark'].includes(theme)) { document.documentElement.dataset.theme = theme; $('#theme').value = theme; } } catch {}
+// Start the redesigned site in light mode, independently of OS and legacy preferences.
+// A new preference key lets existing visitors see the warm-white default on this release.
+const THEME_KEY = 'csmu-survival-guide-theme-v2';
+try {
+  const theme = localStorage.getItem(THEME_KEY);
+  if (['light','dark'].includes(theme)) {
+    document.documentElement.dataset.theme = theme;
+    $('#theme').value = theme;
+  }
+} catch {}
 $('#theme').addEventListener('change',() => {
   const theme = $('#theme').value;
-  if (theme === 'system') delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = theme;
-  try { localStorage.setItem('csmu-survival-guide-theme',theme); } catch {}
+  document.documentElement.dataset.theme = theme;
+  try { localStorage.setItem(THEME_KEY,theme); } catch {}
 });
 route();
 try {
