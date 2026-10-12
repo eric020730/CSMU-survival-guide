@@ -1,0 +1,13 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "csmu-survival-guide",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-10-12",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "routes": [
+    { "pattern": "eric020730.com/CSMU-survival-guide", "zone_name": "eric020730.com" },
+    { "pattern": "eric020730.com/CSMU-survival-guide/*", "zone_name": "eric020730.com" }
+  ],
+  "observability": { "enabled": true }
+}

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#245d4e">
+  <meta name="description" content="記錄我在中山這幾年，值班、上班與生活的生存秘訣。">
+  <title>中山生存指南 | Eric 的日常筆記</title>
+  <link rel="icon" href="/CSMU-survival-guide/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/CSMU-survival-guide/style.css">
+  <script src="/CSMU-survival-guide/app.js" type="module"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到內容</a>
+  <div class="layout">
+    <aside class="sidebar">
+      <a class="brand" href="/CSMU-survival-guide/" aria-label="中山生存指南首頁"><span class="brand-mark">中</span><span>中山生存指南<small>CSMU SURVIVAL GUIDE</small></span></a>
+      <div class="sidebar-body">
+        <p class="nav-label">我的筆記</p>
+        <nav aria-label="紀錄分類" id="categories">
+          <button class="category active" data-category="全部" aria-pressed="true"><span>全部紀錄</span><span class="count">0</span></button>
+          <button class="category" data-category="值班" aria-pressed="false"><span>值班</span><span class="count">0</span></button>
+          <button class="category" data-category="上班" aria-pressed="false"><span>上班</span><span class="count">0</span></button>
+          <button class="category" data-category="生活" aria-pressed="false"><span>生活</span><span class="count">0</span></button>
+        </nav>
+        <div class="sidebar-note"><p>留給下一次的自己。</p><span>把用得上的小訣竅，<br>一篇一篇記下來。</span></div>
+      </div>
+      <div class="sidebar-footer"><button id="how-to" class="text-button">如何更新</button><a href="https://github.com/eric020730/CSMU-survival-guide" target="_blank" rel="noopener">GitHub ↗</a></div>
+    </aside>
+    <main id="main">
+      <header class="topbar"><span>Eric 的日常筆記</span><button id="new-note" class="primary">＋ 新增紀錄</button></header>
+      <section class="intro" id="intro"><h1>在中山，好好過日子。</h1><p>記錄這幾年值班、上班與生活的生存秘訣。<br>實際用過的經驗，慢慢整理在這裡。</p></section>
+      <section id="collection" aria-label="筆記列表">
+        <div class="tools"><h2 id="section-title">全部紀錄</h2><div class="search-box"><label for="search" class="sr-only">搜尋紀錄</label><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="搜尋標題、內容或標籤" autocomplete="off"></div></div>
+        <p id="result-count" class="result-count" aria-live="polite">正在讀取紀錄…</p>
+        <div id="notes" class="notes"><div class="loading" aria-hidden="true"></div></div>
+        <noscript><p>請開啟 JavaScript 來搜尋及閱讀紀錄。文章原稿也可以在 <a href="https://github.com/eric020730/CSMU-survival-guide/tree/main/content">GitHub</a> 閱讀。</p></noscript>
+      </section>
+      <article id="reader" hidden tabindex="-1">
+        <button id="back" class="text-button back">← 回到紀錄</button>
+        <p id="article-meta" class="article-meta"></p><h1 id="article-title"></h1><div id="article-tags" class="tags"></div><div id="article-body" class="prose"></div>
+        <div class="reader-footer"><a id="edit-note" target="_blank" rel="noopener">在 GitHub 編輯 ↗</a><button id="copy-link" class="text-button">複製連結</button><span id="copy-status" role="status"></span></div>
+      </article>
+      <footer class="main-footer"><span>中山生存指南</span><span>個人經驗，持續更新。</span></footer>
+    </main>
+  </div>
+  <dialog id="editor" aria-labelledby="editor-title">
+    <div class="dialog-head"><div><h2 id="editor-title">新增紀錄</h2><p>先記下來，之後再慢慢補完整。</p></div><button type="button" class="close" data-close="editor" aria-label="關閉新增紀錄">×</button></div>
+    <form id="note-form">
+      <label for="title">標題</label><input id="title" name="title" required maxlength="100" placeholder="這次想記下什麼？">
+      <div class="form-row"><div><label for="category">分類</label><select id="category" name="category"><option>值班</option><option>上班</option><option>生活</option></select></div><div><label for="date">紀錄日期</label><input id="date" name="date" type="date" required></div></div>
+      <label for="summary">一句話重點 <span>（選填）</span></label><input id="summary" name="summary" maxlength="200" placeholder="讓之後的自己一眼找到重點">
+      <label for="tags">標籤 <span>（選填，以逗號分隔）</span></label><input id="tags" name="tags" maxlength="200" placeholder="例如：交班, 吃飯">
+      <label for="body">內容</label><textarea id="body" name="body" required rows="7" placeholder="寫下你的經驗。可以用 ## 小標題、- 條列重點。"></textarea>
+      <p id="draft-status" class="draft-status" role="status">草稿只保留在此瀏覽器，尚未發佈。</p>
+      <p class="publish-help">下一步會開啟 GitHub。確認檔案內容並提交後，網站就會自動更新。</p>
+      <div class="dialog-actions"><button type="button" id="download" class="secondary">下載 Markdown</button><button type="submit" class="primary">前往 GitHub 發佈 ↗</button></div>
+    </form>
+  </dialog>
+  <dialog id="help" aria-labelledby="help-title"><div class="dialog-head"><h2 id="help-title">如何更新</h2><button class="close" data-close="help" aria-label="關閉更新說明">×</button></div><div class="prose"><p>點「新增紀錄」，填好標題、分類與內容，再按「前往 GitHub 發佈」。</p><ol><li>登入你的 GitHub 帳號。</li><li>確認新檔案的內容，按 <strong>Commit changes</strong>，提交到 <strong>main</strong>。</li><li>等 GitHub Actions 發佈完成，重新整理網站即可看到新紀錄。</li></ol><p>文章下方的「在 GitHub 編輯」可以修改已有紀錄。也可以直接把新經驗告訴 Codex，請它整理、推送並確認上線。</p><p>草稿只保存在目前的瀏覽器。要跨裝置保留，請提交到 GitHub，或先下載 Markdown 備份。</p><a href="https://github.com/eric020730/CSMU-survival-guide/actions" target="_blank" rel="noopener">查看發佈進度 ↗</a></div></dialog>
+</body>
+</html>

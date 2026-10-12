@@ -1,0 +1,18 @@
+{
+  "name": "csmu-survival-guide",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test scripts/content.test.mjs",
+    "dev": "npm run build && node scripts/serve.mjs",
+    "deploy:route": "wrangler deploy"
+  },
+  "devDependencies": {
+    "marked": "^18.1.0",
+    "sanitize-html": "^2.18.0",
+    "wrangler": "^4.149.0",
+    "yaml": "^2.9.1"
+  }
+}
