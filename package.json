@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "node --test scripts/content.test.mjs",
+    "test": "node --test scripts/*.test.mjs",
     "dev": "npm run build && node scripts/serve.mjs",
     "deploy:route": "wrangler deploy"
   },

@@ -52,7 +52,7 @@
       <label for="summary">一句話重點 <span>（選填）</span></label><input id="summary" name="summary" maxlength="200" placeholder="讓之後的自己一眼找到重點">
       <label for="tags">標籤 <span>（選填，以逗號分隔）</span></label><input id="tags" name="tags" maxlength="200" placeholder="例如：交班, 吃飯">
       <label for="body">內容</label><textarea id="body" name="body" required rows="7" placeholder="寫下你的經驗。可以用 ## 小標題、- 條列重點。"></textarea>
-      <p id="draft-status" class="draft-status" role="status">草稿只保留在此瀏覽器，尚未發佈。</p>
+      <button type="button" id="clear-draft" class="text-button">清空草稿</button><div id="clear-confirm" hidden><p class="publish-help">尚未發佈的草稿將被移除。請先確認已備份。</p><button type="button" id="confirm-clear" class="secondary">確認清空</button> <button type="button" id="cancel-clear" class="text-button">保留草稿</button></div><p id="draft-status" class="draft-status" role="status">草稿只保留在此瀏覽器，尚未發佈。</p>
       <p class="publish-help">下一步會開啟 GitHub。確認檔案內容並提交後，網站就會自動更新。</p>
       <div class="dialog-actions"><button type="button" id="download" class="secondary">下載 Markdown</button><button type="submit" class="primary">前往 GitHub 發佈 ↗</button></div>
     </form>

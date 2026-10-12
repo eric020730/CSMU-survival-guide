@@ -90,7 +90,11 @@ $('#new-note').addEventListener('click', () => {
   $('#editor').showModal();
   $('#title').focus();
 });
-form.addEventListener('input', saveDraft);
+form.addEventListener('input', () => {
+  $('#title').setCustomValidity($('#title').value.trim() ? '' : '請輸入標題');
+  $('#body').setCustomValidity($('#body').value.trim() ? '' : '請輸入內容');
+  saveDraft();
+});
 form.addEventListener('change', saveDraft);
 for (const button of document.querySelectorAll('[data-close]')) button.addEventListener('click', () => document.getElementById(button.dataset.close).close());
 $('#how-to').addEventListener('click', () => $('#help').showModal());
@@ -101,6 +105,19 @@ function markdown() {
   return `---\ntitle: ${JSON.stringify(draft.title.trim())}\ncategory: ${JSON.stringify(draft.category)}\ndate: ${draft.date}\ntags: ${JSON.stringify(tags)}\nsummary: ${JSON.stringify(draft.summary.trim())}\n---\n\n${draft.body.trim()}\n`;
 }
 let sessionFilename;
+$('#clear-draft').addEventListener('click', () => { $('#clear-confirm').hidden = false; });
+$('#cancel-clear').addEventListener('click', () => { $('#clear-confirm').hidden = true; });
+$('#confirm-clear').addEventListener('click', () => {
+  $('#clear-confirm').hidden = true;
+  form.reset();
+  $('#date').value = today();
+  sessionFilename = undefined;
+  $('#title').setCustomValidity('');
+  $('#body').setCustomValidity('');
+  try { localStorage.removeItem(DRAFT_KEY); } catch {}
+  $('#draft-status').textContent = '草稿已清空，可以開始新的紀錄。';
+  $('#title').focus();
+});
 function filename() {
   if (!sessionFilename) sessionFilename = `${$('#date').value}-${crypto.randomUUID().slice(0,8)}.md`;
   return sessionFilename;
